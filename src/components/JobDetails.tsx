@@ -79,7 +79,7 @@ const jobs: Record<string, Job[]> = {
       name: "Responsible for wheely bins",
       frequency: "weekly",
       description:
-        "Take Wheely bins out on a Monday Evening. Glass and Reclyding change weekly. If you're unsure which week it is, message the group chat.",
+        "Take Wheely bins out on a Monday Evening. Glass and Reclying change weekly. If you're unsure which week it is, message the group chat.",
     },
     {
       name: "Dust Shelves",
