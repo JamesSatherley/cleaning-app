@@ -54,7 +54,13 @@ const Schedule: React.FC = () => {
       <ul>
         {rooms.map((room) => (
           <li key={room}>
-            <strong>{room}</strong> - {assignments[room]}
+            <span style={{ display: "flex" }}>
+              <strong>{room}</strong>&nbsp;&nbsp;
+              <span style={{ paddingTop: "1.5px" }}>
+                —&nbsp;&nbsp;
+                {assignments[room]}
+              </span>
+            </span>
             <JobDetails
               room={room}
               person={assignments[room]}

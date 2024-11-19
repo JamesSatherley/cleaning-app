@@ -126,7 +126,8 @@ const JobDetails: React.FC<JobDetailsProps> = ({
               onChange={() => toggleJob(job.name)}
             />
             <div>
-              <strong>{job.name}</strong>: {job.description}
+              <strong>{job.name}</strong>
+              {job.description}
             </div>
           </label>
         </li>
