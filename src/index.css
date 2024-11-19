@@ -105,3 +105,37 @@ li ul li {
     font-size: 1rem;
   }
 }
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #4caf50; /* Green border matching button */
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="checkbox"]:hover {
+  border-color: #45a049; /* Darker green on hover */
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4caf50; /* Green fill when checked */
+  border-color: #4caf50; /* Match the fill color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "✔";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  line-height: 20px;
+}

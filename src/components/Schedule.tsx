@@ -26,8 +26,8 @@ const Schedule: React.FC = () => {
 
   const assignments = rotatePeople();
 
-  const startOfWeek = currentDate.format("DD/MMM");
-  const endOfWeek = currentDate.endOf("week").format("DD/MMM");
+  const startOfWeek = currentDate.format("DD MMM");
+  const endOfWeek = currentDate.endOf("week").format("DD MMM");
   const currentWeekKey = `${startOfWeek}-${endOfWeek}`;
 
   const clearAllStorage = () => {
@@ -38,7 +38,7 @@ const Schedule: React.FC = () => {
     ) {
       localStorage.clear();
       alert("All data has been cleared!");
-      //   window.location.reload();
+      window.location.reload();
     }
   };
 

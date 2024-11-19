@@ -119,7 +119,7 @@ const JobDetails: React.FC<JobDetailsProps> = ({
     <ul>
       {filteredJobs.map((job, index) => (
         <li key={index}>
-          <label style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+          <label style={{ display: "flex", alignItems: "center", gap: "20px" }}>
             <input
               type="checkbox"
               checked={checklist[job.name] || false}
