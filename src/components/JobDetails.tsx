@@ -1,4 +1,3 @@
-// src/components/JobDetails.tsx
 import dayjs from "dayjs";
 import React from "react";
 

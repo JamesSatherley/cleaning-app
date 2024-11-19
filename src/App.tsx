@@ -1,10 +1,10 @@
-// src/App.tsx
 import React from "react";
+import "./index.css";
 import Schedule from "./components/Schedule";
 
 const App: React.FC = () => {
   return (
-    <div style={{ fontFamily: "Arial", padding: "20px" }}>
+    <div className="container">
       <h1>Cleaning Schedule</h1>
       <Schedule />
     </div>

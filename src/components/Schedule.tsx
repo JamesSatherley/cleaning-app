@@ -1,4 +1,3 @@
-// src/components/Schedule.tsx
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import JobDetails from "./JobDetails";
@@ -12,7 +11,6 @@ const Schedule: React.FC = () => {
   const nextWeek = () => setCurrentDate(currentDate.add(1, "week"));
   const prevWeek = () => setCurrentDate(currentDate.subtract(1, "week"));
 
-  // Use the difference in weeks from the start of the epoch (or another reference date)
   const weekIndex = Math.floor(
     currentDate.diff(dayjs().startOf("year"), "day") / 7
   );
@@ -36,7 +34,7 @@ const Schedule: React.FC = () => {
       <h2>
         Week {startOfWeek} - {endOfWeek}
       </h2>
-      <div>
+      <div className="nav-buttons">
         <button onClick={prevWeek}>&lt; Previous</button>
         <button onClick={nextWeek}>Next &gt;</button>
       </div>
