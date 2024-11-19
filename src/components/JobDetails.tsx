@@ -1,5 +1,5 @@
-import dayjs from "dayjs";
 import React from "react";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 interface Job {
   name: string;
@@ -9,7 +9,8 @@ interface Job {
 
 interface JobDetailsProps {
   room: string;
-  currentDate: dayjs.Dayjs;
+  person: string;
+  currentWeekKey: string;
   includeMonthlyJobs: boolean;
 }
 
@@ -69,8 +70,15 @@ const jobs: Record<string, Job[]> = {
 
 const JobDetails: React.FC<JobDetailsProps> = ({
   room,
+  person,
+  currentWeekKey,
   includeMonthlyJobs,
 }) => {
+  const [checklist, setChecklist] = useLocalStorage<Record<string, boolean>>(
+    `${currentWeekKey}-${person}-${room}`,
+    {}
+  );
+
   const roomJobs = jobs[room];
 
   const filteredJobs = roomJobs.filter((job) => {
@@ -79,11 +87,27 @@ const JobDetails: React.FC<JobDetailsProps> = ({
     return false;
   });
 
+  const toggleJob = (jobName: string) => {
+    setChecklist({
+      ...checklist,
+      [jobName]: !checklist[jobName],
+    });
+  };
+
   return (
     <ul>
       {filteredJobs.map((job, index) => (
         <li key={index}>
-          <strong>{job.name}</strong>: {job.description}
+          <label style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <input
+              type="checkbox"
+              checked={checklist[job.name] || false}
+              onChange={() => toggleJob(job.name)}
+            />
+            <div>
+              <strong>{job.name}</strong>: {job.description}
+            </div>
+          </label>
         </li>
       ))}
     </ul>

@@ -28,6 +28,18 @@ const Schedule: React.FC = () => {
 
   const startOfWeek = currentDate.format("DD/MMM");
   const endOfWeek = currentDate.endOf("week").format("DD/MMM");
+  const currentWeekKey = `${startOfWeek}-${endOfWeek}`;
+
+  const clearAllStorage = () => {
+    if (
+      window.confirm(
+        "Are you sure you want to clear all stored data? This action cannot be undone."
+      )
+    ) {
+      localStorage.clear();
+      alert("All data has been cleared!");
+    }
+  };
 
   return (
     <div>
@@ -44,12 +56,29 @@ const Schedule: React.FC = () => {
             <strong>{room}</strong> - {assignments[room]}
             <JobDetails
               room={room}
-              currentDate={currentDate}
+              person={assignments[room]}
+              currentWeekKey={currentWeekKey}
               includeMonthlyJobs={currentDate.date() <= 7}
             />
           </li>
         ))}
       </ul>
+      <div style={{ marginTop: "20px", textAlign: "center" }}>
+        <button
+          style={{
+            backgroundColor: "#f44336",
+            color: "white",
+            border: "none",
+            padding: "10px 20px",
+            fontSize: "1rem",
+            cursor: "pointer",
+            borderRadius: "5px",
+          }}
+          onClick={clearAllStorage}
+        >
+          Clear All Storage
+        </button>
+      </div>
     </div>
   );
 };
