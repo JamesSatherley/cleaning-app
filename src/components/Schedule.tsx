@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import dayjs from "dayjs";
 import JobDetails from "./JobDetails";
 
-const people = ["James", "Caitlin", "Taylor"];
+const people = ["James", "Kailyn", "Taeler"];
 const rooms = ["Kitchen", "Bathroom", "Living Room"];
 
 const Schedule: React.FC = () => {
@@ -38,6 +38,7 @@ const Schedule: React.FC = () => {
     ) {
       localStorage.clear();
       alert("All data has been cleared!");
+      //   window.location.reload();
     }
   };
 
