@@ -22,7 +22,7 @@ const internetBills: Bill[] = [
   { date: "2024-12-12", amount: 113.47 },
 ];
 
-const amenitiesMonthly = 70;
+const amenitiesMonthly = 100;
 const gasWeekly = 23.94;
 
 const Money: React.FC = () => {
