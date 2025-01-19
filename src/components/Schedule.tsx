@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import dayjs from "dayjs";
 import JobDetails from "./JobDetails";
 
-const people = ["James", "Kaitlyn", "Taeler"];
+const people = ["James", "Lizzy", "Taeler"];
 const rooms = ["Kitchen", "Bathroom", "Living Room"];
 
 const Schedule: React.FC = () => {

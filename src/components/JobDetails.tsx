@@ -1,5 +1,6 @@
 import React from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
+import { getNextCollectionDate } from "../utils/dateUtils";
 
 interface Job {
   name: string;
@@ -14,6 +15,12 @@ interface JobDetailsProps {
   includeMonthlyJobs: boolean;
 }
 
+const startDates = {
+  rubbish: new Date(2025, 0, 27),
+  glass: new Date(2025, 0, 21),
+  recycling: new Date(2025, 0, 28),
+};
+
 const jobs: Record<string, Job[]> = {
   Kitchen: [
     {
@@ -22,14 +29,10 @@ const jobs: Record<string, Job[]> = {
       description: "Wipe down all surfaces and counters.",
     },
     {
-      name: "Mop Floor",
+      name: "Responsible for Kitchen Bins",
       frequency: "weekly",
-      description: "Mop the entire kitchen floor.",
-    },
-    {
-      name: "Responsible for Kitchen Rubbish Bin",
-      frequency: "weekly",
-      description: "Make sure the Kitchen bin is clean and empty.",
+      description:
+        "Make sure the inside Kitchen bins are clean and emptied regurarly into the wheelie bins outside.",
     },
     {
       name: "Clean Oven",
@@ -54,11 +57,6 @@ const jobs: Record<string, Job[]> = {
       description: "Make sure the Bathroom bin is clean and empty.",
     },
     {
-      name: "Mop Floor",
-      frequency: "weekly",
-      description: "Mop the bathroom floor.",
-    },
-    {
       name: "Clean shower",
       frequency: "weekly",
       description: "Clean the bathroom.",
@@ -76,10 +74,21 @@ const jobs: Record<string, Job[]> = {
       description: "Vacuum all group rooms, including hallway.",
     },
     {
-      name: "Responsible for wheely bins",
+      name: "Mop or vacuum kitchen, bathroom and laundry",
       frequency: "weekly",
       description:
-        "Take Wheely bins out on a Monday Evening. Glass and Reclying change weekly. If you're unsure which week it is, message the group chat.",
+        "Some weeks they will need mop, and others vacuum. Up to you :)",
+    },
+    {
+      name: "Responsible for wheelie and glass bins being emptied",
+      frequency: "weekly",
+      description: `The next rubbish day is ${
+        getNextCollectionDate("rubbish", startDates).message
+      }. The next recycling day is ${
+        getNextCollectionDate("recycling", startDates).message
+      }. The next glass day is ${
+        getNextCollectionDate("glass", startDates).message
+      }`,
     },
     {
       name: "Dust Shelves",

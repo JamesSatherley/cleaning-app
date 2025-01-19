@@ -139,3 +139,58 @@ input[type="checkbox"]:checked::after {
   position: absolute;
   line-height: 20px;
 }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px 20px;
+  background-color: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.tabs button.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.tabs button:hover:not(.active) {
+  background-color: #d6d6d6;
+}
+
+/* Tab content */
+.tab-content {
+  margin-top: 20px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #a8a8a8;
+  text-align: left;
+  padding: 8px;
+}
+
+.money {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.bigMoney {
+  font-size: x-large;
+}
